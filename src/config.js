@@ -1,5 +1,5 @@
 export const config = {
-    api: "http://localhost:3000"
+    api: "https://office-management-back-end.onrender.com"
     // api : "https://encouraging-pike-jumpsuit.cyclic.app"
     // api : "https://officemanagement-server.onrender.com"
 
