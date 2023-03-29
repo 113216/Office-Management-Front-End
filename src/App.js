@@ -16,14 +16,14 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Login />}> </Route>
-        <Route path='/dashboard' element={<Dashboard />}>
+        <Route path='/:token/dashboard' element={<Dashboard />}>
 
-          <Route path='/dashboard/edit/:id' element={<Editemployee />}></Route>
-          <Route path='/dashboard/create' element={<Addemployee />}></Route>
-          <Route path='/dashboard/delete/:id' element={<Deleteemployee />}></Route>
-          <Route path='/dashboard/assign/:id' element={<Assign />}></Route>
-          <Route path='/dashboard/work' element={<Work />}></Route>
-          <Route path='/dashboard/unassign/:id' element={<Unassign />}></Route>
+          <Route path='/:token/dashboard/edit/:id' element={<Editemployee />}></Route>
+          <Route path='/:token/dashboard/create' element={<Addemployee />}></Route>
+          <Route path='/:token/dashboard/delete/:id' element={<Deleteemployee />}></Route>
+          <Route path='/:token/dashboard/assign/:id' element={<Assign />}></Route>
+          <Route path='/:token/dashboard/work' element={<Work />}></Route>
+          <Route path='/:token/dashboard/unassign/:id' element={<Unassign />}></Route>
 
 
         </Route>

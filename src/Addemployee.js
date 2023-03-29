@@ -2,9 +2,11 @@ import { useFormik } from 'formik'
 import React, { useState } from 'react'
 import axios from 'axios'
 import { config } from './config';
+import { useParams } from 'react-router-dom';
 
 function Addemployee() {
 
+	const params = useParams()
 	const [loading, setloading] = useState(false)
 
 	const formik = useFormik({
@@ -53,7 +55,7 @@ function Addemployee() {
 				console.log(data)
 				setloading(false)
 				alert("Employee Created Succesfully")
-				window.location.href = "/dashboard"
+				window.location.href = `/${params.token}/dashboard`
 			} catch (error) {
 				console.log(error)
 			}

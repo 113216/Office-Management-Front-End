@@ -68,7 +68,7 @@ function Editemployee() {
                 console.log(data)
                 setloading(false)
                 alert("Employee Updated Succesfully")
-                window.location.href = "/dashboard"
+                window.location.href = `${params.token}/dashboard`
                 formik.resetForm()
             } catch (error) {
                 console.log(error)

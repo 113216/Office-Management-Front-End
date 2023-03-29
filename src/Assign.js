@@ -34,7 +34,7 @@ function Assign() {
                 await axios.put(`${config.api}/employee/assign/${params.id}`, values)
                 setLoading(false)
                 alert("Work Assigned")
-                window.location.href = "/dashboard"
+                window.location.href = `/${params.token}/dashboard`
             } catch (error) {
                 console.log(error)
                 setLoading(false)

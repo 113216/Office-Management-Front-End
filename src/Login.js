@@ -32,9 +32,10 @@ function Login() {
             try {
                 setLoading(true)
                 setError()
-                await axios.post(`${config.api}/users/login`, values)
+                const { data } = await axios.post(`${config.api}/users/login`, values)
+                console.log(data)
                 setLoading(false)
-                navigate('/dashboard')
+                navigate(`${data}/dashboard`)
 
             } catch (error) {
                 setLoading(false)

@@ -5,12 +5,13 @@ import Navbar from './Navbar'
 import Table from './Table'
 import axios from 'axios'
 import Editemployee from './Editemployee'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet, useParams } from 'react-router-dom'
 
 export const Context = createContext();
 
 function Dashboard() {
 
+    const params = useParams()
     const [details, setDetails] = useState([]);
     const [loading, setloading] = useState(false);
 
@@ -53,10 +54,10 @@ function Dashboard() {
                                                 <h5 class="text-secondary">Total: <span class="font-weight-bold ml-1 text-dark">{details.length < 10 ? `0${details.length}` : details.length}</span>
                                                 </h5>
 
-                                                <Link to={"/dashboard/create"} class="btn btn-primary mt-4" data-toggle="modal" data-target="#addEmployeeModal">
+                                                <Link to={`/${params.token}/dashboard/create`} class="btn btn-primary mt-4" data-toggle="modal" data-target="#addEmployeeModal">
                                                     <i class="fa fa-plus"></i>&nbsp; Add Employee
                                                 </Link>
-                                                <Link to={"/dashboard/work"} class="btn btn-success mt-4" style={{ color: "white" }} data-toggle="modal" data-target="#workModal">
+                                                <Link to={`/${params.token}/dashboard/work`} class="btn btn-success mt-4" style={{ color: "white" }} data-toggle="modal" data-target="#workModal">
                                                     <i class="fa fa-eye"></i>&nbsp; View Work
                                                 </Link>
                                             </div>

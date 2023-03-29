@@ -19,9 +19,9 @@ function Deleteemployee() {
 
         try {
             setloading(true)
-            await axios.delete(`${config.api}/employee/delete/${id}`)
+            await axios.delete(`/${config.api}/employee/delete/${id}`)
             setloading(false)
-            window.location.href = "/dashboard"
+            window.location.href = `${params.token}/dashboard`
         } catch (error) {
             console.log(error)
         }

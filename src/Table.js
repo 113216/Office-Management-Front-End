@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 
 import { Context } from './Dashboard';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 function Table() {
     const PerPage = 3;
     const values = useContext(Context);
-
+    const params = useParams()
     useEffect(() => {
         pagenate(0)
     }, [values]);
@@ -79,17 +79,17 @@ function Table() {
                                     <div class="custom-control custom-checkbox">
                                         {
                                             value.available == true ?
-                                                <Link to={`/dashboard/assign/${value._id}`} type='button' className='btn btn-outline-success btn-sm' data-toggle="modal" data-target="#assignEmployeeModal" >Assign Work</Link>
+                                                <Link to={`/${params.token}/dashboard/assign/${value._id}`} type='button' className='btn btn-outline-success btn-sm' data-toggle="modal" data-target="#assignEmployeeModal" >Assign Work</Link>
                                                 :
-                                                <Link to={`/dashboard/unassign/${value._id}`} type='button' className='btn btn-outline-warning btn-sm' data-toggle="modal" data-target="#UnassignModal" >UnAssign Work</Link>
+                                                <Link to={`/${params.token}/dashboard/unassign/${value._id}`} type='button' className='btn btn-outline-warning btn-sm' data-toggle="modal" data-target="#UnassignModal" >UnAssign Work</Link>
                                         }
                                     </div>
                                 </td>
                                 <td>
-                                    <Link to={`/dashboard/edit/${value._id}`} type="button" class="btn btn-outline-info btn-sm mr-2" data-toggle="modal" data-target="#editEmployeeModal">
+                                    <Link to={`/${params.token}/dashboard/edit/${value._id}`} type="button" class="btn btn-outline-info btn-sm mr-2" data-toggle="modal" data-target="#editEmployeeModal">
                                         <i class="fa fa-edit"></i> Edit
                                     </Link>
-                                    <Link to={`/dashboard/delete/${value._id}`} type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#deleteEmployeeModal">
+                                    <Link to={`/${params.token}/dashboard/delete/${value._id}`} type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#deleteEmployeeModal">
                                         <i class="fa fa-trash"></i> Delete
                                     </Link>
                                 </td>

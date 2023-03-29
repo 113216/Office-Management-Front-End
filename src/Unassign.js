@@ -17,7 +17,7 @@ function Unassign() {
             await axios.put(`${config.api}/employee/assign/${id}`, value)
             Setloading(false)
             alert("Work Unassigned")
-            window.location.href = '/dashboard'
+            window.location.href = `/${params.token}/dashboard`
         } catch (error) {
             Setloading(false)
             console.log(error)
